@@ -27,8 +27,8 @@ class StudentAdapter(
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         val student = lstStudents[position]
-        holder.tvFname.text = student.fname
-        holder.tvLname.text = student.lname
+        holder.tvFname.text = student.fullName
+       // holder.tvLname.text = student.lname
     }
 
     override fun getItemCount(): Int {

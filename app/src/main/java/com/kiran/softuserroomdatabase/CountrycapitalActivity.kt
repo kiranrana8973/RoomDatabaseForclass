@@ -50,7 +50,6 @@ class CountrycapitalActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadCountriesFromText() {
         try {
-
             val fileInputStream = openFileInput("Country.txt")
             val inputStream = InputStreamReader(fileInputStream)
             val bufferedReader = BufferedReader(inputStream)

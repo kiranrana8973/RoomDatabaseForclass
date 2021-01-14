@@ -20,7 +20,7 @@
 
         </activity>
         <activity android:name=".ViewStudentsActivity" />
-        <activity android:name=".AddStudentActivity"></activity>
+        <activity android:name=".RegisterUserActivity"></activity>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreenActivity"></activity>
