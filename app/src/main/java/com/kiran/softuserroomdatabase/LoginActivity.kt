@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 
@@ -11,6 +12,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var etUsername: TextInputEditText
     private lateinit var etPassword: TextInputEditText
+    private lateinit var tvRegister: TextView
     private lateinit var btnLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
         btnLogin = findViewById(R.id.btnLogin)
+        tvRegister = findViewById(R.id.tvRegister)
         etUsername.setText("softwarica")
         etPassword.setText("coventry")
 
@@ -32,6 +35,10 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Either username or password is incorrect", Toast.LENGTH_SHORT)
                     .show()
             }
+        }
+
+        tvRegister.setOnClickListener {
+            startActivity(Intent(this@LoginActivity,RegisterUserActivity::class.java))
         }
     }
 }

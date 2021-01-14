@@ -24,7 +24,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:hint="Username"
             android:textSize="15sp" />
@@ -39,7 +39,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:hint="Password"
             android:inputType="textPassword"
@@ -50,10 +50,17 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:background="@drawable/roundedbutton"
         android:text="Login"
         android:textColor="#FFFFFF" />
 
-
+    <TextView
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:id="@+id/tvRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registeruser" />
 </LinearLayout>

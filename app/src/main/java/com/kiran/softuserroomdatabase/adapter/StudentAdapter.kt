@@ -15,8 +15,7 @@ class StudentAdapter(
 ) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
     class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvFname: TextView= view.findViewById(R.id.tvFname)
-        val tvLname: TextView= view.findViewById(R.id.tvLname)
+        val tvFname: TextView= view.findViewById(R.id.tvFullName)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -28,7 +27,6 @@ class StudentAdapter(
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         val student = lstStudents[position]
         holder.tvFname.text = student.fullName
-       // holder.tvLname.text = student.lname
     }
 
     override fun getItemCount(): Int {
