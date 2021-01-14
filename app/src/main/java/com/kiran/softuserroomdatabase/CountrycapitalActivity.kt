@@ -39,6 +39,7 @@ class CountrycapitalActivity : AppCompatActivity() {
             val country = etCountry.text.toString()
             val capital = etCapital.text.toString()
             val printStream = PrintStream(openFileOutput("Country.txt", MODE_APPEND))
+
             printStream.println("$country -> $capital")
             Toast.makeText(this, "$capital saved", Toast.LENGTH_SHORT).show()
         } catch (e: IOException) {
