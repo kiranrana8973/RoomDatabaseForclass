@@ -31,6 +31,9 @@ class CountrycapitalActivity : AppCompatActivity() {
         btnAddCountry.setOnClickListener {
             addCountryToText()
             loadCountriesFromText()
+            etCountry.text.clear()
+            etCapital.text.clear()
+
         }
     }
 

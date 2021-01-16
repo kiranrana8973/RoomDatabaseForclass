@@ -16,7 +16,7 @@ import com.kiran.softuserroomdatabase.entity.User
 )
 abstract class StudentDB : RoomDatabase() {
     abstract fun getStudentDAO(): StudentDAO
-    abstract fun getUserDAO() : UserDAO
+    abstract fun getUserDAO(): UserDAO
 
     companion object {
         @Volatile
@@ -28,11 +28,21 @@ abstract class StudentDB : RoomDatabase() {
                 instance = it
             }
         }
+
+        fun getInstance(context: Context): StudentDB {
+            if (instance == null) {
+                synchronized(StudentDB::class) {
+                    instance = buildDatabase(context)
+                }
+            }
+            return instance!!
+        }
+
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
-            context.applicationContext,
-            StudentDB::class.java,
-            "StudentDB"
-        ).build()
+                context.applicationContext,
+                StudentDB::class.java,
+                "StudentDB"
+            ).build()
     }
 }

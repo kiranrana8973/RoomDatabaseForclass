@@ -1,12 +1,20 @@
 package com.kiran.softuserroomdatabase
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
+import com.kiran.softuserroomdatabase.db.StudentDB
+import com.kiran.softuserroomdatabase.entity.User
+import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers.Main
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,22 +31,38 @@ class LoginActivity : AppCompatActivity() {
         etPassword = findViewById(R.id.etPassword)
         btnLogin = findViewById(R.id.btnLogin)
         tvRegister = findViewById(R.id.tvRegister)
-        etUsername.setText("softwarica")
-        etPassword.setText("coventry")
+        etUsername.setText("k")
+        etPassword.setText("k")
 
         btnLogin.setOnClickListener {
-            if (etUsername.text?.trim().toString() == "softwarica" && etPassword.text?.trim()
-                    .toString() == "coventry"
-            ) {
-                startActivity(Intent(this, DashboardActivity::class.java))
-            } else {
-                Toast.makeText(this, "Either username or password is incorrect", Toast.LENGTH_SHORT)
-                    .show()
-            }
+            login()
         }
 
         tvRegister.setOnClickListener {
-            startActivity(Intent(this@LoginActivity,RegisterUserActivity::class.java))
+            startActivity(Intent(this@LoginActivity, RegisterUserActivity::class.java))
         }
+    }
+
+    private fun login() {
+        val username = etUsername.text.toString()
+        val password = etPassword.text.toString()
+
+        var user: User? = null
+        CoroutineScope(Dispatchers.IO).launch {
+            user = StudentDB.getInstance(this@LoginActivity)
+                .getUserDAO()
+                .checkUser(username, password)
+            // Switch to main thread
+            withContext(Main) {
+                if (user == null) {
+                    Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT)
+                        .show()
+
+                } else {
+                    startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                }
+            }
+        }
+
     }
 }
