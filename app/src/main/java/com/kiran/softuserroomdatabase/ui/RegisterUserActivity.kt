@@ -1,12 +1,12 @@
-package com.kiran.softuserroomdatabase
+package com.kiran.softuserroomdatabase.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.kiran.softuserroomdatabase.R
 import com.kiran.softuserroomdatabase.db.StudentDB
-import com.kiran.softuserroomdatabase.entity.Student
 import com.kiran.softuserroomdatabase.entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,9 +44,10 @@ class RegisterUserActivity : AppCompatActivity() {
                 etPassword.requestFocus()
                 return@setOnClickListener
             } else {
-                val user = User(fname,lname,username,password)
+               b
                 CoroutineScope(Dispatchers.IO).launch {
-                    StudentDB(this@RegisterUserActivity).getUserDAO().registerUser(user)
+                    //StudentDB(this@RegisterUserActivity).getUserDAO().registerUser(user)
+                    StudentDB.getInstance(this@RegisterUserActivity).getUserDAO().registerUser(user)
                 }
                 Toast.makeText(this, "User registered", Toast.LENGTH_SHORT).show()
             }

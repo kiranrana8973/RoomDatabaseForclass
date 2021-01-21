@@ -1,16 +1,13 @@
-package com.kiran.softuserroomdatabase
+package com.kiran.softuserroomdatabase.ui
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
+import com.kiran.softuserroomdatabase.R
 import com.kiran.softuserroomdatabase.db.StudentDB
 import com.kiran.softuserroomdatabase.entity.User
 import kotlinx.coroutines.*
@@ -52,15 +49,14 @@ class LoginActivity : AppCompatActivity() {
             user = StudentDB.getInstance(this@LoginActivity)
                 .getUserDAO()
                 .checkUser(username, password)
-            // Switch to main thread
-            withContext(Main) {
-                if (user == null) {
+
+            if (user == null) {
+                withContext(Dispatchers.Main) {
                     Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT)
                         .show()
-
-                } else {
-                    startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
                 }
+            } else {
+                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
             }
         }
 

@@ -1,12 +1,12 @@
-package com.kiran.softuserroomdatabase
+package com.kiran.softuserroomdatabase.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.kiran.softuserroomdatabase.R
 import com.kiran.softuserroomdatabase.adapter.StudentAdapter
 import com.kiran.softuserroomdatabase.db.StudentDB
-import com.kiran.softuserroomdatabase.entity.Student
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main

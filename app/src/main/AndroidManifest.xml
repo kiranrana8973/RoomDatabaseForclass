@@ -9,24 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SoftUserRoomDatabase">
-        <activity android:name=".AddstudentActivity"></activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".CountrycapitalActivity">
-
-        </activity>
-        <activity android:name=".ViewStudentsActivity" />
-        <activity android:name=".RegisterUserActivity" />
-        <activity android:name=".DashboardActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ui.UpdateStudentActivity"></activity>
+        <activity android:name=".ui.AddstudentActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".ui.CountrycapitalActivity">
+
+        </activity>
+        <activity android:name=".ui.ViewStudentsActivity" />
+        <activity android:name=".ui.RegisterUserActivity" />
+        <activity android:name=".ui.DashboardActivity" />
+        <activity android:name=".ui.LoginActivity">
+
+        </activity>
+        <activity android:name=".ui.SplashScreenActivity" />
     </application>
 
 </manifest>

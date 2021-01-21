@@ -11,7 +11,7 @@ import com.kiran.softuserroomdatabase.entity.User
 
 @Database(
     entities = [(Student::class), (User::class)],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 abstract class StudentDB : RoomDatabase() {
@@ -21,13 +21,6 @@ abstract class StudentDB : RoomDatabase() {
     companion object {
         @Volatile
         private var instance: StudentDB? = null
-        private val LOCK = Any()
-
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
-            instance ?: buildDatabase(context).also {
-                instance = it
-            }
-        }
 
         fun getInstance(context: Context): StudentDB {
             if (instance == null) {

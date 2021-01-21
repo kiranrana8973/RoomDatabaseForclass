@@ -1,4 +1,4 @@
-package com.kiran.softuserroomdatabase
+package com.kiran.softuserroomdatabase.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
+import com.kiran.softuserroomdatabase.R
 import com.kiran.softuserroomdatabase.db.StudentDB
 import com.kiran.softuserroomdatabase.entity.Student
 import kotlinx.coroutines.CoroutineScope
@@ -63,8 +64,10 @@ class AddstudentActivity : AppCompatActivity() {
         try {
             CoroutineScope(Dispatchers.IO).launch {
                 StudentDB(this@AddstudentActivity).getStudentDAO().insertStudent(student)
+                withContext(Main){
+                    Toast.makeText(this@AddstudentActivity, "Student Added", Toast.LENGTH_SHORT).show()
+                }
             }
-            Toast.makeText(this, "Student Added", Toast.LENGTH_SHORT).show()
         } catch (ex: Exception) {
             Toast.makeText(this, "Error ${ex.localizedMessage}", Toast.LENGTH_SHORT).show()
         }

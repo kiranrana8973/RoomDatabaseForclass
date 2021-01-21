@@ -1,8 +1,9 @@
-package com.kiran.softuserroomdatabase
+package com.kiran.softuserroomdatabase.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.kiran.softuserroomdatabase.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -15,7 +16,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
-            startActivity(Intent(this@SplashScreenActivity,LoginActivity::class.java))
+            startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
             finish()
         }
     }

@@ -1,9 +1,10 @@
-package com.kiran.softuserroomdatabase
+package com.kiran.softuserroomdatabase.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.kiran.softuserroomdatabase.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,11 +19,11 @@ class MainActivity : AppCompatActivity() {
         btnCountryCapital = findViewById(R.id.btnCountryCapital)
 
         btnRoomDatabase.setOnClickListener {
-            startActivity(Intent(this@MainActivity,SplashScreenActivity::class.java))
+            startActivity(Intent(this@MainActivity, SplashScreenActivity::class.java))
         }
 
         btnCountryCapital.setOnClickListener {
-            startActivity(Intent(this@MainActivity,CountrycapitalActivity::class.java))
+            startActivity(Intent(this@MainActivity, CountrycapitalActivity::class.java))
         }
     }
 }
