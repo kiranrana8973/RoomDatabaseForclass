@@ -63,7 +63,7 @@ class AddstudentActivity : AppCompatActivity() {
         val student = Student(fullName, age, gender, address)
         try {
             CoroutineScope(Dispatchers.IO).launch {
-                StudentDB(this@AddstudentActivity).getStudentDAO().insertStudent(student)
+                StudentDB.getInstance(this@AddstudentActivity).getStudentDAO().insertStudent(student)
                 withContext(Main){
                     Toast.makeText(this@AddstudentActivity, "Student Added", Toast.LENGTH_SHORT).show()
                 }

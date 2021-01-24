@@ -49,14 +49,14 @@ class LoginActivity : AppCompatActivity() {
             user = StudentDB.getInstance(this@LoginActivity)
                 .getUserDAO()
                 .checkUser(username, password)
-
             if (user == null) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT)
                         .show()
                 }
             } else {
-                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                startActivity(Intent(this@LoginActivity,
+                    DashboardActivity::class.java))
             }
         }
 

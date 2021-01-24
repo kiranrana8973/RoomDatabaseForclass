@@ -44,7 +44,7 @@ class RegisterUserActivity : AppCompatActivity() {
                 etPassword.requestFocus()
                 return@setOnClickListener
             } else {
-               b
+                val user = User(fname, lname, username, password)
                 CoroutineScope(Dispatchers.IO).launch {
                     //StudentDB(this@RegisterUserActivity).getUserDAO().registerUser(user)
                     StudentDB.getInstance(this@RegisterUserActivity).getUserDAO().registerUser(user)

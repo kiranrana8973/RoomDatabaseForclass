@@ -7,10 +7,11 @@ import androidx.room.RoomDatabase
 import com.kiran.softuserroomdatabase.dao.StudentDAO
 import com.kiran.softuserroomdatabase.dao.UserDAO
 import com.kiran.softuserroomdatabase.entity.Student
+import com.kiran.softuserroomdatabase.entity.Test
 import com.kiran.softuserroomdatabase.entity.User
 
 @Database(
-    entities = [(Student::class), (User::class)],
+    entities = [(Student::class), (User::class),(Test::class)],
     version = 1,
     exportSchema = false
 )
