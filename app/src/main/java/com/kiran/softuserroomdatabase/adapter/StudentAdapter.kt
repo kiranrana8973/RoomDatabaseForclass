@@ -74,7 +74,8 @@ class StudentAdapter(
 
     private fun deleteStudent(student: Student) {
         CoroutineScope(Dispatchers.IO).launch {
-            StudentDB.getInstance(context).getStudentDAO().DeleteStudent(student)
+            StudentDB.getInstance(context).getStudentDAO()
+                .DeleteStudent(student)
             withContext(Main) {
                 Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
             }

@@ -23,7 +23,9 @@ class ViewStudentsActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
 //            val lstStudents = StudentDB(this@ViewStudentsActivity).getStudentDAO().getAllStudents()
-            val lstStudents = StudentDB.getInstance(this@ViewStudentsActivity).getStudentDAO().getAllStudents()
+            val lstStudents =
+                StudentDB.getInstance(this@ViewStudentsActivity)
+                    .getStudentDAO().getAllStudents()
 
             withContext(Main){
                 recyclerView.adapter = StudentAdapter(this@ViewStudentsActivity,lstStudents)
